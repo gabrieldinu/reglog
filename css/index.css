@@ -1,0 +1,36 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+    padding-top: 100px;
+}
+#main{
+    min-height: 540px;
+}
+#forgot_password, #logout_link{
+    margin: 4px 4px 4px 12px;
+}
+.navbar a{
+    color: #fff;
+    background-color: transparent;
+
+}
+.navbar a:hover{
+    color: #5bc0de;
+    text-decoration: none;
+    background-color:  transparent;
+}
+#logout_link:hover{
+    color: #c12e2a;
+    text-decoration: none;
+    background-color:  transparent;
+}
+.display{
+    font-size: 1.6em;
+}
+.glyphicon.glyphicon-log-out {
+    font-size: 1.1em;
+}
+#map-canvas {
+    height: 540px;
+    margin: 0px;
+    padding: 0px
+}
