@@ -111,15 +111,7 @@ if (isset($_POST['user_register'])) {
         $gender = $_POST['gender'];
     }
     
-    $ip = $geolocation->getip();
-
-    if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-        $ip = $_SERVER['HTTP_CLIENT_IP'];
-    } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-    } else {
-        $ip = $_SERVER['REMOTE_ADDR'];
-    }
+    $ip = getenv('REMOTE_ADDR');
 
     if (empty($errors)) {
         $rank = 'a';

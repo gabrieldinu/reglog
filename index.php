@@ -104,7 +104,7 @@ require_once 'includ/connect.php';
                                 <div class="form-group">
                                     <label for="city" class="col-sm-3 control-label hidden-xs">City</label>
                                     <div class="col-sm-7">
-                                        <input type="text" class="form-control" id="city" name="city" placeholder="City" value="" maxlength="30">
+                                        <input type="text" class="form-control" id="city" name="city" placeholder="City" value="<?php echo $ul_city; ?>" maxlength="30">
                                     </div>
                                 </div>
                                 <div class="form-group">

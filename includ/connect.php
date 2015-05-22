@@ -11,4 +11,5 @@ spl_autoload_register(function($class){
 $db = DB::connect();
 
 require_once 'functions.php';
+require_once 'geolocation.php';
 ?>
