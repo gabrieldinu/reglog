@@ -4,9 +4,12 @@
 error_reporting(E_ALL);
 session_start();
 
-spl_autoload_register(function($class){
-    require_once '/class/'.$class.'.php';
-});
+//spl_autoload_register(function($class){
+//    require_once '/class/'.$class.'.php';
+//});
+
+require_once './class/DB.php';
+require_once './class/CSRF.php';
 
 $db = DB::connect();
 
