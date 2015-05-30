@@ -7,9 +7,9 @@ function escape($string) {
 function redirect() {
     if (isset($_SESSION['id_user']) && isset($_SESSION['rank'])) {
         if ($_SESSION['rank'] == 'a') {
-            header('Location:admin.php');
+            header('Location:../admin.php');
         } elseif ($_SESSION['rank'] == 'b') {
-            header('Location:user.php');
+            header('Location:../user.php');
         }
     }
 }

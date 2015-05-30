@@ -1,5 +1,5 @@
 <?php
- require_once 'includ/connect.php';
+require_once "/includ/connect.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +29,7 @@
                         <div class="panel-heading"><h3 class="panel-title"><strong>FORGOT PASSWORD</strong></h3></div>
                         <div class="panel-body">
                             <h4>To reset password fill in the e-mail used for registration.</h4><br/>
-                            <form action="php_processor.php" class="form-horizontal" id="form_forgot_password" name="form_forgot_password" method="POST">                            
+                            <form action="processes/forgot_pw.php" class="form-horizontal" id="form_forgot_password" name="form_forgot_password" method="POST">                            
                                 <div class="form-group">
                                     <label for="forgot_password_email" class="col-sm-3 control-label hidden-xs">Account email </label>
                                     <div class="col-sm-8">

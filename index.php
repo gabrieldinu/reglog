@@ -1,5 +1,5 @@
 <?php
-require_once 'includ/connect.php';
+require_once "/includ/connect.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +31,7 @@ require_once 'includ/connect.php';
                     <div class="panel panel-info">
                         <div class="panel-heading"><h3 class="panel-title"><strong>REGISTER</strong></h3></div>
                         <div class="panel-body">                            
-                            <form action="php_processor.php" class="form-horizontal" id="form_register" name="form_register" method="POST">
+                            <form action="processes/register_user.php" class="form-horizontal" id="form_register" name="form_register" method="POST">
                                 <div class="form-group">
                                     <label for="first_name" class="col-sm-3 control-label hidden-xs">First Name</label>
                                     <div class="col-sm-7">

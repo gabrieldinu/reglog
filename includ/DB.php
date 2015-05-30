@@ -18,7 +18,8 @@ class DB {
     
     private function __construct(){
         try { 
-            $this->pdo=new PDO('mysql:host='.$this->host.';dbname='.$this->db,$this->username,$this->password);
+            $this->pdo=new PDO('mysql:host='.$this->host.';dbname='.$this->db,$this->username,$this->password,
+                                array(PDO::ATTR_PERSISTENT => true));
         }catch (PDOException $e){
             die($e->getMessage());
             }
@@ -56,5 +57,10 @@ class DB {
     public function hashit($password) {
         return md5($password . $this->salt);        
     }
-
+    
+    public static function close(){
+        self::$instant = null;
+        $this->pdo = null;
+    }
 }
+

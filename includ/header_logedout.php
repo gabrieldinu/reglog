@@ -7,7 +7,7 @@
     </button>                    
 </div>
 <div id="navbar" class="navbar-collapse collapse">
-    <form action="php_processor.php" class="navbar-form navbar-right" id="form_login" method="POST">                        
+    <form action="./processes/login_user.php" class="navbar-form navbar-right" id="form_login" method="POST">                        
         <div class="form-group">
             <input type="email" placeholder="Email" class="form-control" id="email_login" name="email_login" maxlength="50">
         </div>
