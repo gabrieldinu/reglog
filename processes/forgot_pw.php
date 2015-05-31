@@ -54,8 +54,8 @@ if (isset($_POST['forgot_password_btn'])) {
                     header("location: ../forgot_password.php");
                     exit();
                 } else {
-                    array_push($errors, "The email could not be sent to the specified address.<br/>");
-                    $_SESSION['errors'] = $errors;
+                    array_push($warnings, "The email could not be sent.<br/> Please try again later.<br/>");
+                    $_SESSION['warnings'] = $warnings;
                     header("location: ../forgot_password.php");
                     exit();
                 }

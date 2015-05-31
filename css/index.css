@@ -25,6 +25,7 @@ body {
 }
 .display{
     font-size: 1.6em;
+    text-align: left;
 }
 .glyphicon.glyphicon-log-out {
     font-size: 1.1em;
@@ -33,4 +34,12 @@ body {
     height: 540px;
     margin: 0px;
     padding: 0px
+}
+.error{
+    margin: 0px;
+    padding-top: 1px;
+    color: #d9534f;
+}
+.highlight{
+    border-color: #d43f3a;
 }

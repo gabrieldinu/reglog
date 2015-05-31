@@ -24,7 +24,7 @@ require_once "/includ/connect.php";
         <div class="container" id="main">          
             <div class="row" >
                 <div class="col-sm-6 hidden-xs">                    
-                    <div id="map-canvas"></div>     
+<!--                    <div id="map-canvas"></div>     -->
                 </div>
                 <div class="col-sm-6">
                     <!-- Register Form -->
@@ -44,11 +44,10 @@ require_once "/includ/connect.php";
                                         <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name" maxlength="30">
                                     </div>
                                 </div>
-
                                 <div class="form-group">
                                     <label for="birthday" class="col-sm-3 control-label hidden-xs">Birthday</label>
-                                    <div class="col-sm-7" id="birthday">
-                                        <select form="form_register" name="day" id="day">
+                                    <div class="col-sm-7 form-inline" id="birthday">
+                                        <select form="form_register" class="form-control" name="day" id="day">
                                             <option selected disabled hidden>Day</option>
                                             <?php
                                             for ($d = 1; $d <= 31; $d++) {
@@ -59,7 +58,7 @@ require_once "/includ/connect.php";
                                             }
                                             ?>                                     
                                         </select>
-                                        <select form="form_register" name="month" id="month">
+                                        <select form="form_register" class="form-control" name="month" id="month">
                                             <option selected disabled hidden>Month</option>
                                             <?php
                                             for ($m = 1; $m <= 12; $m++) {
@@ -70,7 +69,7 @@ require_once "/includ/connect.php";
                                             }
                                             ?>
                                         </select>
-                                        <select form="form_register" name="year" id="year">
+                                        <select form="form_register" class="form-control" name="year" id="year">
                                             <option selected disabled hidden>Year</option>
                                             <?php
                                             for ($y = date("Y"); $y >= 1920; $y--) {
@@ -86,7 +85,7 @@ require_once "/includ/connect.php";
                                 <div class="form-group">
                                     <label for="email_register" class="col-sm-3 control-label hidden-xs">Email</label>
                                     <div class="col-sm-7">
-                                        <input type="email" class="form-control" id="email_inregistrare" name="email_register" placeholder="Email" maxlength="50">
+                                        <input type="email" class="form-control" id="email_register" name="email_register" placeholder="Email" maxlength="50">
                                     </div>
                                 </div>                             
                                 <div class="form-group">
@@ -110,12 +109,12 @@ require_once "/includ/connect.php";
                                 <div class="form-group">
                                     <label for="gender" class="col-sm-3 control-label hidden-xs">Gender</label>
                                     <div class="col-sm-7" id="gender">
-                                        <label class="radio-inline">
+                                        <div class="radio-inline">
                                             <input type="radio" name="gender" id="male" value="m"><span class="glyphicon glyphicon-male"></span> Male
-                                        </label>
-                                        <label class="radio-inline">
+                                        </div>
+                                        <div class="radio-inline">
                                             <input type="radio" name="gender" id="female" value="f"><span class="glyphicon glyphicon-female"></span> Female
-                                        </label>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -139,6 +138,6 @@ require_once "/includ/connect.php";
         <script src="js/bootstrap.min.js"></script>
         <script src="js/index.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
-        <script src="js/geolocation.js"></script>>
+        <script src="js/geolocation.js"></script>
     </body>
 </html>
