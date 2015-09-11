@@ -12,5 +12,5 @@ require_once 'CSRF.php';
 $db = DB::connect();
 
 require_once 'functions.php';
-require_once 'geolocation.php';
+//require_once 'geolocation.php';
 ?>

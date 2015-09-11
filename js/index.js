@@ -41,8 +41,7 @@ $(document).ready(function () {
         }
 
         $('input').on('focus', removeHasError);
-        $('#male, #female').on('click', removeHasError);
-        $('#birthday').on('click', removeHasError);
+        $('#male, #female, #birthday').on('click', removeHasError);
         
         
         if ($.trim(first_name).length == 0) {
@@ -76,14 +75,10 @@ $(document).ready(function () {
         if ($.trim(password_register).length == 0) {        
             var error_mesage = $('<p class="error">Password is required</p>');
             $('#password_register').after(error_mesage).closest('.form-group').addClass('has-error');
-        }
-        
-        if ($.trim(repassword_register).length == 0) {
+        }else if ($.trim(repassword_register).length == 0) {
             var error_mesage = $('<p class="error">Retype password</p>');
             $('#repassword_register').after(error_mesage).closest('.form-group').addClass('has-error');
-        }
-       
-        if (($.trim(password_register).length != 0)&&($.trim(repassword_register).length != 0)) {
+        }else if (password_register != repassword_register) {
             var error_mesage = $('<p class="error">Passwords do not match</p>');
             $('#repassword_register').after(error_mesage).closest('.form-group').addClass('has-error');
             $('#password_register').closest('.form-group').addClass('has-error');
@@ -94,7 +89,7 @@ $(document).ready(function () {
         }        
        
         if ($.trim(city).length == 0) {
-            var error_mesage = $('<p class="error">Please select city</p>');
+            var error_mesage = $('<p class="error">Please enter city</p>');
             $('#city').after(error_mesage).closest('.form-group').addClass('has-error');
         }
 
