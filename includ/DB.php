@@ -1,12 +1,15 @@
 <?php
 //PDO for connecting to the mysql database.
 
+/**
+ * Class DB
+ */
 class DB {
     
     private static $instant = null;
     private $host ='localhost';
     private $username='root';
-    private $password='120287';
+    private $password='';
     private $db='social';    
     private $pdo;
     private $query;
@@ -14,17 +17,23 @@ class DB {
     public  $result;
     public  $affected_rows = 0;
     //we use salt to concatenate the password with the string below and get an md5 hash from the resulting string.
-    private $salt='uj}7yZ%u.xG/N<U=&E@=2Ra!|b%q+;1]+lh&s9Fa_$X47]';   
-    
+    private $salt='uj}7yZ%u.xG/N<U=&E@=2Ra!|b%q+;1]+lh&s9Fa_$X47]';
+
+    /**
+     * DB constructor.
+     */
     private function __construct(){
         try { 
             $this->pdo=new PDO('mysql:host='.$this->host.';dbname='.$this->db,$this->username,$this->password,
-                                array(PDO::ATTR_PERSISTENT => true));
+                                [PDO::ATTR_PERSISTENT => true]);
         }catch (PDOException $e){
             die($e->getMessage());
             }
     }
-    
+
+    /**
+     * @return DB|null
+     */
     public static function connect()
     {
         if(!isset(self::$instant)){
@@ -34,9 +43,15 @@ class DB {
     }
     
     //using a function to easily bind values
-    public function query($sql,$parameters=array()){
+    /**
+     * @param $sql
+     * @param array $parameters
+     * @return $this
+     */
+    public function query($sql, $parameters= []){
         $this->error = false;
-        if($this->query = $this->pdo->prepare($sql)){
+        $this->query = $this->pdo->prepare($sql);
+        if($this->query){
             $x=1;
             if(count($parameters)){
                 foreach ($parameters as $p) {
@@ -46,21 +61,24 @@ class DB {
             }
             if($this->query->execute()){
                 $this->result = $this->query->fetchAll(PDO::FETCH_ASSOC);
-                $this->affected_rows = $this->query->rowCount();            
+                $this->affected_rows = $this->query->rowCount();
             }else{
                 $this->error = true;
             }
         }
         return $this;
     }
-    
+
+    /**
+     * @param $password
+     * @return string
+     */
     public function hashit($password) {
         return md5($password . $this->salt);        
     }
     
     public static function close(){
         self::$instant = null;
-        $this->pdo = null;
     }
 }
 
