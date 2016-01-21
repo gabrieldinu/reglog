@@ -2,10 +2,12 @@
 require_once "../includ/connect.php";
 
 //Register user
-if (isset($_POST['user_register'])) {
+//if (isset($_POST['user_register'])) {
+
     $errors = array();
     $warnings = array();
     $success = array();
+
     if (!isset($_POST['first_name']) || (trim($_POST['first_name']) == '')) {
         array_push($errors, " Insert first name.<br/> ");
     } else {
@@ -126,4 +128,4 @@ if (isset($_POST['user_register'])) {
         header("location: ../notify.php");
         exit();
     }
-}
+//}
