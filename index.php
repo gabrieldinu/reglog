@@ -119,7 +119,9 @@ require_once "/includ/connect.php";
                                 </div>
                                 <div class="form-group">
                                     <div class="col-xs-3 col-xs-offset-7">
-                                        <button type="submit" id="user_register" name="user_register" class="btn btn-warning">SIGN UP</button>
+                                        <button type="submit" id="user_register" name="user_register" class="btn btn-warning">
+                                           SIGN UP
+                                        </button>
                                     </div>
                                 </div>
                             </form>
@@ -137,7 +139,7 @@ require_once "/includ/connect.php";
         <script src="js/jquery-2.1.3.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/index.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
-        <script src="js/geolocation.js"></script>
+        <!--<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+        <script src="js/geolocation.js"></script>-->
     </body>
 </html>

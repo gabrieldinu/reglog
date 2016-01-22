@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('#user_register').on('click', function (event) {
+    $('#form_register').on('click','#user_register', function (event) {
         event.preventDefault();
         $('p.error').remove();
         $('.form-group').removeClass('has-error');
@@ -13,8 +13,6 @@ $(document).ready(function () {
         var day = $('#day').val();
         var month = $('#month').val();
         var year = $('#year').val();
-        var error = false;
-
 
         function removeHasError() {
             $(this).closest('.form-group').removeClass('has-error').find('.error').remove();
@@ -48,49 +46,41 @@ $(document).ready(function () {
         if ($.trim(first_name).length == 0) {
             var error_mesage = $('<p class="error">First name is required</p>');
             $('#first_name').after(error_mesage).closest('.form-group').addClass('has-error');
-            error=true;
         }        
 
         //check last_name validation
         if ($.trim(last_name).length == 0) {
             var error_mesage = $('<p class="error">Last name is required</p>');
             $('#last_name').after(error_mesage).closest('.form-group').addClass('has-error');
-            error=true;
         }
 
         //check birthday validation
         if ((day == null) || (month == null) || (year == null)) {
             var error_mesage = $('<p class="error">Insert full birthday</p>');
             $('#birthday').append(error_mesage).closest('.form-group').addClass('has-error');
-            error=true;
         } else if(!validateDate(day, month, year)){
             var error_mesage = $('<p class="error">Not valid calendar date</p>');
             $('#birthday').append(error_mesage).closest('.form-group').addClass('has-error');
-            error=true;
         }        
 
         //check email validation
         if ($.trim(email_register).length == 0) {
             var error_mesage = $('<p class="error">Email is required</p>');
             $('#email_register').after(error_mesage).closest('.form-group').addClass('has-error');
-            error=true;
         }else if (!validateEmail(email_register)){
             var error_mesage = $('<p class="error">Email not valid</p>');
             $('#email_register').after(error_mesage).closest('.form-group').addClass('has-error');
-            error=true;
         }else{
-//            verify using ajax if email is unic;
-        }        
+
+        }
 
         //check password validation
         if ($.trim(password_register).length == 0) {        
             var error_mesage = $('<p class="error">Password is required</p>');
             $('#password_register').after(error_mesage).closest('.form-group').addClass('has-error');
-            error=true;
         }else if ($.trim(repassword_register).length == 0) {
             var error_mesage = $('<p class="error">Retype password</p>');
             $('#repassword_register').after(error_mesage).closest('.form-group').addClass('has-error');
-            error=true;
         }else if (password_register != repassword_register) {
             var error_mesage = $('<p class="error">Passwords do not match</p>');
             $('#repassword_register').after(error_mesage).closest('.form-group').addClass('has-error');
@@ -99,24 +89,21 @@ $(document).ready(function () {
                 $('#password_register').closest('.form-group').removeClass('has-error');
                 $('#repassword_register').closest('.form-group').removeClass('has-error').find('.error').remove();
             });
-            error=true;
         }        
 
         //check city validation
         if ($.trim(city).length == 0) {
             var error_mesage = $('<p class="error">Please enter city</p>');
             $('#city').after(error_mesage).closest('.form-group').addClass('has-error');
-            error=true;
         }
 
         //check gender validation
         if (!($('#male').is(":checked")) && !($('#female').is(":checked"))) {
             var error_mesage = $('<p class="error">Please select gender</p>');
             $('#gender').append(error_mesage).closest('.form-group').addClass('has-error');
-            error=true;
         }
 
-        if (!error){
+        if ($('p.error').length==0) {
             $('#form_register').submit();
         }
     });

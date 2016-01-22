@@ -28,7 +28,7 @@ require_once "../includ/connect.php";
         //$e = $select->result;
         //$email_returned = $e[0]['email'];
         if ($select->affected_rows == 1) {
-            array_push($errors, " The email address you entered is already used. Please provide another email.<br/>");
+            array_push($errors, " The email address you entered is already used.<br/>");
         } else {
             $email_register = $_POST['email_register'];
         }
