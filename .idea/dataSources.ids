@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - social@localhost" uuid="9766a18e-aa4d-47cb-8929-613505714fe7">
+    <database-info product="MySQL" version="5.6.17" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.4">
+      <schema id="1" name="social"/>
+      <table id="2" parent="1" name="users"/>
+      <column id="3" parent="2" name="id_user">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="4" parent="2" name="email">
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="5" parent="2" name="password">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="6" parent="2" name="temp_pass">
+        <data-type>varchar(32)</data-type>
+      </column>
+      <column id="7" parent="2" name="last_name">
+        <mandatory>1</mandatory>
+        <data-type>text</data-type>
+      </column>
+      <column id="8" parent="2" name="first_name">
+        <mandatory>1</mandatory>
+        <data-type>text</data-type>
+      </column>
+      <column id="9" parent="2" name="birthday">
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="10" parent="2" name="gender">
+        <mandatory>1</mandatory>
+        <data-type>enum(&apos;m&apos;, &apos;f&apos;)</data-type>
+      </column>
+      <column id="11" parent="2" name="city">
+        <data-type>text</data-type>
+      </column>
+      <column id="12" parent="2" name="rank">
+        <mandatory>1</mandatory>
+        <data-type>enum(&apos;a&apos;, &apos;b&apos;)</data-type>
+        <default-expression>&apos;a&apos;</default-expression>
+      </column>
+      <column id="13" parent="2" name="avatar">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="14" parent="2" name="ip">
+        <mandatory>1</mandatory>
+        <data-type>varchar(45)</data-type>
+      </column>
+      <column id="15" parent="2" name="date_registered">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+        <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
+      </column>
+      <column id="16" parent="2" name="last_login">
+        <data-type>datetime</data-type>
+      </column>
+      <column id="17" parent="2" name="notification">
+        <mandatory>1</mandatory>
+        <data-type>datetime</data-type>
+        <default-expression>&apos;0000-00-00 00:00:00&apos;</default-expression>
+      </column>
+      <column id="18" parent="2" name="activated">
+        <mandatory>1</mandatory>
+        <data-type>enum(&apos;0&apos;, &apos;1&apos;)</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <index id="19" parent="2" name="username">
+        <columns>email</columns>
+        <desc-columns></desc-columns>
+        <unique>1</unique>
+      </index>
+      <key id="20" parent="2" name="PRIMARY">
+        <columns>id_user</columns>
+        <primary>1</primary>
+      </key>
+      <key id="21" parent="2" name="username">
+        <columns>email</columns>
+        <underlying-index>username</underlying-index>
+      </key>
+    </database-model>
+  </data-source>
+</component>
