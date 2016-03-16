@@ -16,7 +16,6 @@ require_once "/includ/connect.php";
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/index.css">
-
     </head>
     <body>
         <?php include_once 'header.php'; ?> 

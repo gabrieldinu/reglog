@@ -30,7 +30,6 @@ $(document).ready(function () {
                    // var no_error_mesage = $('<p class="error">The email address you entered is uniq.</p>');
                     $('#email_register').closest('.form-group').addClass('has-success');
                 }
-
             },
             error: function () {
                 console.log("Error in ajax!");
