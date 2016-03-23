@@ -1,6 +1,6 @@
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
-    padding-top: 100px;
+    padding-top: 80px;
 }
 #main{
     min-height: 540px;
@@ -11,7 +11,6 @@ body {
 .navbar a{
     color: #fff;
     background-color: transparent;
-
 }
 .navbar a:hover{
     color: #5bc0de;

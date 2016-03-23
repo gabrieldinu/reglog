@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $('#form_register').on('click','#user_register', function (event) {
+    $('#form_register').on('keyup','#email_register', function (event) {
         event.preventDefault();
 
         $('p.error').remove();

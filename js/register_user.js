@@ -1,8 +1,11 @@
 $(document).ready(function () {
-    $('#form_register').on('click blur change', '#user_register', function (event) {
+    $('#form_register').on('click', '#user_register', function (event) {
         event.preventDefault();
+        
         $('p.error').remove();
         $('.form-group').removeClass('has-error');
+         $('input').on('focus', removeHasError);
+        $('#male, #female, #birthday').on('click', removeHasError);
 
         var first_name = $('#first_name').val();
         var last_name = $('#last_name').val();
@@ -39,9 +42,9 @@ $(document).ready(function () {
             }
         }
 
-        function isEmailUniq() {
+        function isEmailAvailable() {
             return JSON.parse($.ajax({
-                url: 'processes/ajax_validator.php',
+                url: 'processes/ajax_validator_email_available.php',
                 async: false,
                 beforeSend: function () {
                     var loading = $('<span class="glyphicon glyphicon-refresh spinning"></span>');
@@ -54,7 +57,7 @@ $(document).ready(function () {
                 type: 'POST',
                 dataType: 'json',
                 data: {
-                    email: $('#email_register').val()
+                    email_register: $('#email_register').val()
                 },
                 success: function (data) {
                 },
@@ -62,10 +65,7 @@ $(document).ready(function () {
                     console.log("Error in ajax!");
                 }
             }).responseText);
-        }
-
-        $('input').on('focus', removeHasError);
-        $('#male, #female, #birthday').on('click', removeHasError);
+        }      
 
         //check first_name validation
         if ($.trim(first_name).length == 0) {
@@ -96,8 +96,8 @@ $(document).ready(function () {
             var error_mesage = $('<p class="error">Email not valid</p>');
             $('#email_register').after(error_mesage).closest('.form-group').addClass('has-error');
         } else if (($.trim(email_register).length != 0) && (validateEmail(email_register))) {
-            var resp = isEmailUniq();
-            if (!resp.user_available) {
+            var resp = isEmailAvailable();
+            if (!resp.email_available) {
                 var error_mesage = $('<p class="error">The email address is already used.</p>');
                 $('#email_register').after(error_mesage).closest('.form-group').addClass('has-error');
             } 

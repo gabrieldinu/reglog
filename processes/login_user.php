@@ -2,12 +2,12 @@
 require_once "../includ/connect.php";
 
 //Login user
-if (isset($_POST['btn_login'])) {
+//if (isset($_POST['btn_login'])) {
     $errors = array();
     $warnings = array();
     $success = array();
     if (!isset($_POST['email_login']) || (trim($_POST['email_login']) == '') || !isset($_POST['password_login']) || (trim($_POST['password_login']) == '')) {
-        array_push($errors, " Insert your email and password in order to access your account.<br/>");
+        array_push($errors, " Insert email and password.<br/>");
     } else {
         $email_login = $_POST['email_login'];
         $password_login = $db->hashit($_POST['password_login']);
@@ -40,4 +40,4 @@ if (isset($_POST['btn_login'])) {
         header("location: ../notify.php");
         exit();
     }
-}
+//}

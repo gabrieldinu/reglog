@@ -137,7 +137,8 @@ require_once "/includ/connect.php";
         ================================================== -->
         <script src="js/jquery-2.1.3.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        <script src="js/index.js"></script>
+        <script src="js/login_user.js"></script>
+        <script src="js/register_user.js"></script>
         <!--<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
         <script src="js/geolocation.js"></script>-->
     </body>
