@@ -11,6 +11,8 @@ function redirect() {
         } elseif ($_SESSION['rank'] == 'b') {
             header('Location:../user.php');
         }
+    } else {
+        header('Location:../index.php');
     }
 }
 
@@ -25,7 +27,8 @@ function notify() {
                         <strong>ERROR:</strong>
                         <br/><hr/>
                         ' . $errors . '
-                    </div>                                  
+                    </div><br/>
+                    <a href="index.php"><strong>LOG IN / REGISTER</strong></a><br/>
                  </div>';
     } else if (isset($_SESSION['success'])) {
         $success = implode(" ", $_SESSION['success']);
@@ -37,7 +40,8 @@ function notify() {
                         <strong>SUCCESS:</strong>
                         <br/><hr/>
                         ' . $success . '
-                    </div>                   
+                    </div><br/>
+                     <a href="index.php"><strong>LOG IN / REGISTER</strong></a><br/>
                  </div>';
     } else if (isset($_SESSION['warnings'])) {
         $warnings = implode(" ", $_SESSION['warnings']);
@@ -49,13 +53,14 @@ function notify() {
                         <strong>WARNING:</strong>
                         <br/><hr/>
                         ' . $warnings . '
-                    </div>                   
+                    </div><br/>
+                     <a href="index.php"><strong>LOG IN / REGISTER</strong></a><br/>
                  </div>';
     }
 }
 
-function getIP(){
-if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+function getIP() {
+    if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
         $ip = $_SERVER['HTTP_CLIENT_IP'];
     } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
         $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
@@ -64,9 +69,20 @@ if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
     }
 }
 
-function gLocation($atrlocation){
-    if (isset($atrlocation)){
-        return '';      
+function gLocation($atrlocation) {
+    if (isset($atrlocation)) {
+        return '';
     }
     return $atrlocation;
+}
+
+function randStrGen($l) {
+    $result = "";
+    $chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    $charArray = str_split($chars);
+    for ($i = 0; $i < $l; $i++) {
+        $randItem = array_rand($charArray);
+        $result .= "" . $charArray[$randItem];
+    }
+    return $result;
 }

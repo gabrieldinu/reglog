@@ -19,8 +19,6 @@ require_once "/includ/connect.php";
 
     </head>
     <body>
-        <?php include_once 'header.php'; ?> 
-
         <div class="container" id="main">
             <div class="row" >
                 <div class="col-sm-6 col-sm-offset-3 text-center">
